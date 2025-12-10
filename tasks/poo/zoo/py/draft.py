@@ -4,9 +4,9 @@ class Animal(ABC):
     def __init__ (self, nome: str):
         self.__nome = nome
     
-    def __str__(self):
-        return f"Eu sou um(a) {self.__nome} - som: {self.fazer_som()}, movimento: {self.mover()}"
-    
+    def apresentar_nome(self):
+        return self.__nome
+
     @abstractmethod
     def fazer_som(self):
         pass
@@ -46,6 +46,18 @@ class Galinha (Animal):
     def mover(self):
         return "Ciscar"   
 
-animais: list[Animal] = [Leao("Leão"), Cobra("Cobra"), Galinha("Galinha")]
-for animal in animais:
-    print (animal)
+def apresentar(animal: Animal):
+    print (f"Eu sou um(a) {animal.apresentar_nome()} - som: {animal.fazer_som()}, movimento: {animal.mover()}")
+    print(type(animal))
+
+leao = Leao("Leão")
+cobra = Cobra("Cobra")
+galinha = Galinha("Galinha")
+
+apresentar(leao)
+apresentar(cobra)
+apresentar(galinha)
+
+
+
+
