@@ -58,6 +58,12 @@ apresentar(leao)
 apresentar(cobra)
 apresentar(galinha)
 
+lion = Leao("Lion")
+cobrita = Cobra("Snake")
+chicken = Galinha ("Pó pó")
 
+apresentar(lion)
+apresentar(cobrita)
+apresentar(chicken)
 
 
