@@ -15,6 +15,13 @@ class Animal(ABC):
     def mover(self):
         pass
 
+    @abstractmethod
+    def cor(self):
+        pass
+
+    @abstractmethod
+    def quantidade_patas(self):
+        pass
 
 class Leao (Animal):
     def __init__ (self, nome: str):
@@ -25,6 +32,12 @@ class Leao (Animal):
     
     def mover(self):
         return "Correr"
+    
+    def cor(self):
+        return "Amarelo e marrom"
+    
+    def quantidade_patas(self):
+        return 4
 
 class Cobra (Animal):
     def __init__ (self, nome: str):
@@ -35,6 +48,12 @@ class Cobra (Animal):
     
     def mover(self):
         return "Rastejar"
+    
+    def cor(self):
+        return "Verde"
+    
+    def quantidade_patas(self):
+        return 0
 
 class Galinha (Animal):
     def __init__ (self, nome: str):
@@ -44,10 +63,16 @@ class Galinha (Animal):
         return "PÓ PÓ PÓ PÓ"
     
     def mover(self):
-        return "Ciscar"   
+        return "Ciscar"
+
+    def cor(self):
+        return "Branca" 
+    
+    def quantidade_patas(self):
+        return 2
 
 def apresentar(animal: Animal):
-    print (f"Eu sou um(a) {animal.apresentar_nome()} - som: {animal.fazer_som()}, movimento: {animal.mover()}")
+    print (f"Eu sou um(a) {animal.apresentar_nome()} - som: {animal.fazer_som()}, movimento: {animal.mover()}, cor: {animal.cor()}, quantidade de patas: {animal.quantidade_patas()}")
     print(type(animal))
 
 leao = Leao("Leão")
@@ -58,12 +83,5 @@ apresentar(leao)
 apresentar(cobra)
 apresentar(galinha)
 
-lion = Leao("Lion")
-cobrita = Cobra("Snake")
-chicken = Galinha ("Pó pó")
-
-apresentar(lion)
-apresentar(cobrita)
-apresentar(chicken)
 
 
