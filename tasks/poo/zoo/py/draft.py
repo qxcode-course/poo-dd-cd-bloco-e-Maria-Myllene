@@ -4,8 +4,8 @@ class Animal(ABC):
     def __init__ (self, nome: str):
         self.__nome = nome
     
-    def apresentar_nome(self):
-        return (f"Eu sou um {self.__nome}")
+    def __str__(self):
+        return f"Eu sou um(a) {self.__nome} - som: {self.fazer_som()}, movimento: {self.mover()}"
     
     @abstractmethod
     def fazer_som(self):
@@ -15,9 +15,10 @@ class Animal(ABC):
     def mover(self):
         pass
 
+
 class Leao (Animal):
     def __init__ (self, nome: str):
-        super().__init__("Leão")
+        super().__init__(nome)
     
     def fazer_som(self):
         return "RRRUUUAAAARRRRR"
@@ -27,7 +28,7 @@ class Leao (Animal):
 
 class Cobra (Animal):
     def __init__ (self, nome: str):
-        super().__init__("Cobra")
+        super().__init__(nome)
     
     def fazer_som(self):
         return "SSSSSS"
@@ -37,7 +38,7 @@ class Cobra (Animal):
 
 class Galinha (Animal):
     def __init__ (self, nome: str):
-        super().__init__("Galinha")
+        super().__init__(nome)
     
     def fazer_som(self):
         return "PÓ PÓ PÓ PÓ"
@@ -45,18 +46,6 @@ class Galinha (Animal):
     def mover(self):
         return "Ciscar"   
 
-def main():
-    animais = [Leao("Leão"), Cobra("Cobra"), Galinha("Galinha")]
-    print (animais)
-    while True:
-        line = input()
-        args: list[str] = line.split(" ")
-        if args [0] == "end":
-            break
-        elif args [0] == "show":
-            for animal in animais:
-                print (animal)
-        else:
-            print("fail: comando invalido")
-
-main()
+animais: list[Animal] = [Leao("Leão"), Cobra("Cobra"), Galinha("Galinha")]
+for animal in animais:
+    print (animal)
