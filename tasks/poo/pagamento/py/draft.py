@@ -91,6 +91,11 @@ def processar_pagamento(pagamento: list [Pagamento]):
         except ValueError as e:
             print(e)
 
-pag: Pagamento = Boleto(valor = 3.58, descricao= "pacote de xuxa", codigo_barras = 1234567890, vencimento = datetime.date(2025, 12, 20))
-pagamentos: list [Pagamento] = [pag]
-processar_pagamento(pagamentos)
+pagamento: Pagamento = [
+    Pix(valor = 150, descricao = "Camisa esportiva", chave = "email@ex.com", banco = "Banco XPTO"),
+    CartaoCredito(valor = 400, descricao = "Tênis esportivo", numero = "1234 5678 9123 4567", nome_titular = "Cliente X", limite_disponivel = 500),
+    Boleto(valor = 89.90, descricao = "Livro de Python", codigo_barras = "123456789000", vencimento = datetime.date(2025, 1, 10)),
+    CartaoCredito(valor = 800, descricao = "Notebook",  numero = "9999 8888 7777 6666", nome_titular = "Cliente Y", limite_disponivel = 700),
+]
+
+processar_pagamento(pagamento)
