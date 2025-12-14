@@ -10,11 +10,11 @@ class Pagamento(ABC):
         self.descricao = descricao
 
     def resumo(self) -> str:
-        return f"Pagamento de R$ {self.valor}: {self.descricao}"
+        return f"Pagamento de R$ {self.valor:.2f}: {self.descricao}"
     
     def validar_valor(self) -> None:
         if self.valor <= 0:
-            raise ValueError("fail: valor invalido")
+            raise ValueError("--- fail: valor invalido ---")
 
     @abstractmethod    
     def processar(self):
@@ -29,6 +29,7 @@ class CartaoCredito(Pagamento):
         self.limite_disponivel = limite_disponivel
 
     def processar(self):
+        self.validar_valor()
         if self.valor > self.limite_disponivel:
             print ("--- fail: limite indisponivel ---")
             return
@@ -36,9 +37,10 @@ class CartaoCredito(Pagamento):
         print ("| success: pagamento confirmado |")
         
     def resumo (self):
-        return "Cartão de Crédito -\n" + super().resumo()
+        return "\nCARTÃO DE CRÉDITO -\n" + super().resumo()
 
     def get_limite(self):
+        print (f"(Dados do cartão)\nNome do Titular: {self.nome_titular} | Número do cartão: {self.numero}")
         return f"[limite disponivel: R$ {self.limite_disponivel:.2f}]"
     
 
@@ -49,12 +51,13 @@ class Pix(Pagamento):
         self.banco = banco
     
     def processar(self):
+        self.validar_valor()
         print ("| success: pagamento confirmado |")
         print (f"PIX enviado via {self.banco} usando chave {self.chave}")
         return
 
     def resumo(self):
-        return "PIX -\n" + super().resumo()
+        return "\nPIX -\n" + super().resumo()
     
 
 class Boleto(Pagamento):
@@ -64,10 +67,13 @@ class Boleto(Pagamento):
         self.vencimento = vencimento
 
     def processar(self):
+        self.validar_valor()
         if self.vencimento < datetime.date.today():
-            raise ValueError("fail: boleto vencido")
+            print(f"Código de barras: {self.codigo_barras} | Vencimento: {self.vencimento}")
+            raise ValueError("--- fail: boleto vencido ---")
         
         print(f"Boleto gerado. Aguardando pagamento...")
+        print(f"Código de barras: {self.codigo_barras} | Vencimento: {self.vencimento}")
 
         for i in range(3, 0, -1):
             print("Aguardando pagamento." + "." * (i - 1), end="\r")
@@ -78,12 +84,11 @@ class Boleto(Pagamento):
         print("| success: pagamento confirmado! |")
 
     def resumo(self):
-        return "Boleto -\n" + super().resumo()    
+        return "\nBOLETO -\n" + super().resumo()    
 
 def processar_pagamento(pagamento: list [Pagamento]):
     for pag in pagamento:
         try: 
-            pag.validar_valor()
             print(pag.resumo())
             pag.processar()
             if isinstance(pag, CartaoCredito):
@@ -96,6 +101,8 @@ pagamento: Pagamento = [
     CartaoCredito(valor = 400, descricao = "Tênis esportivo", numero = "1234 5678 9123 4567", nome_titular = "Cliente X", limite_disponivel = 500),
     Boleto(valor = 89.90, descricao = "Livro de Python", codigo_barras = "123456789000", vencimento = datetime.date(2025, 1, 10)),
     CartaoCredito(valor = 800, descricao = "Notebook",  numero = "9999 8888 7777 6666", nome_titular = "Cliente Y", limite_disponivel = 700),
+    Pix(valor = 0.00, descricao = "Manga do vizinho", chave = "email@ex.com", banco = "Banco XPTO"),
+    Boleto(valor = 50.46, descricao = "Camiseta de One Piece", codigo_barras = "123456789000", vencimento = datetime.date(2025, 12, 30)),
 ]
 
 processar_pagamento(pagamento)
