@@ -1,0 +1,239 @@
+{
+    "patches": [
+        {
+            "label": "2025-12-14_07-55-27",
+            "content": "@@ -262,244 +262,4 @@\n ao%7D%22\n-%0A    %0A    def validar_valor(self) -%3E None:%0A        if self.valor %3C= 0:%0A            raise ValueError(%22fail: valor invalido%22)%0A%0A    @abstractmethod    %0A    def processar(self):%0A        pass%0A%0Apag = Pagamento(5.65, %22salgado%22)%0Aprint(pag.resumo())\n",
+            "lines": "9"
+        },
+        {
+            "label": "2025-12-14_08-02-12",
+            "content": "@@ -502,27 +502,4 @@\n o())\n-%0Aprint(pag.processar())\n",
+            "lines": "20"
+        },
+        {
+            "label": "2025-12-14_08-02-53",
+            "content": "@@ -49,13 +49,8 @@\n ento\n-(ABC)\n :%0A  \n",
+            "lines": "21"
+        },
+        {
+            "label": "2025-12-14_08-03-30",
+            "content": "@@ -455,113 +455,21 @@\n ss%0A%0A\n-%0Aclass CartaoCredito(Pagamento):%0A    def processar(self):%0A        return %22processando%22%0A%0Apag = CartaoCredi\n+pag = Pagamen\n to(5\n",
+            "lines": "21"
+        },
+        {
+            "label": "2025-12-14_08-07-37",
+            "content": "@@ -488,69 +488,8 @@\n o):%0A\n-    def __init__(self):%0A        super().__init__(0, %22%22)%0A    %0A\n     \n@@ -559,16 +559,31 @@\n Credito(\n+5.65, %22salgado%22\n )%0Aprint(\n",
+            "lines": "26"
+        },
+        {
+            "label": "2025-12-14_08-26-28",
+            "content": "@@ -509,495 +509,101 @@\n self\n-, numero: int, nome_titular: str, limite_disponivel: float, valor: float, descricao: str):%0A        super().__init__(valor, descricao)%0A        self.numero = numero%0A        self.nome_titular = nome_titular%0A        self.limite_disponivel = limite_disponivel%0A%0A    def processar(self):%0A        if self.valor %3E self.limite_disponivel:%0A            print (%22fail: limite indisponivel%22)%0A            return%0A        self.limite_disponivel -= self.valor%0A        print (%22sucess: pagamento confirma\n+):%0A        super().__init__(0, %22%22)%0A    %0A    def processar(self):%0A        return %22processan\n do%22\n-)\n %0A%0Apa\n@@ -624,118 +624,8 @@\n ito(\n-nome_titular = %22David%22, descricao = %22caixa de good good%22, limite_disponivel = 8.00, valor = 7.89, numero = 289\n )%0Apr\n",
+            "lines": "29"
+        },
+        {
+            "label": "2025-12-14_08-45-56",
+            "content": "@@ -1146,8 +1146,30 @@\n sumo())%0A\n+print(pag.processar())\n",
+            "lines": "36"
+        },
+        {
+            "label": "2025-12-14_08-46-19",
+            "content": "@@ -1150,26 +1150,4 @@\n ())%0A\n-print(pag.processar())\n",
+            "lines": "35"
+        },
+        {
+            "label": "2025-12-14_08-46-29",
+            "content": "@@ -998,176 +998,11 @@\n %22)%0A%0A\n-def processar_pagamento(pagamento: list %5BPagamento%5D):%0A    for pag in pagamento:%0A        pag.validar_valor()%0A        pag.resumo()%0A        pag.processar()%0A%0Apag: Pagamento\n+pag\n  = C\n@@ -1130,46 +1130,38 @@\n 89)%0A\n-%0Apagamentos: list %5BPagamento%5D = %5Bpag%5D%0A\n+print(pag.resumo())%0Aprint(pag.\n proc\n@@ -1169,26 +1169,7 @@\n ssar\n-_pagamento(pagamentos\n+()\n )\n",
+            "lines": "36"
+        },
+        {
+            "label": "2025-12-14_08-51-06",
+            "content": "@@ -1114,14 +1114,8 @@\n     \n-print(\n pag.\n@@ -1122,17 +1122,16 @@\n resumo()\n-)\n %0A       \n",
+            "lines": "43"
+        },
+        {
+            "label": "2025-12-14_08-51-28",
+            "content": "@@ -965,17 +965,16 @@\n nt (%22suc\n-c\n ess: pag\n",
+            "lines": "43"
+        },
+        {
+            "label": "2025-12-14_08-51-37",
+            "content": "@@ -997,46 +997,8 @@\n do%22)\n-%0A        return self.limite_disponivel\n %0A%0Ade\n",
+            "lines": "43"
+        },
+        {
+            "label": "2025-12-14_08-52-24",
+            "content": "@@ -1002,22 +1002,23 @@\n         \n-print(\n+return \n self.lim\n@@ -1031,17 +1031,16 @@\n sponivel\n-)\n %0A%0Adef pr\n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-12-14_08-52-58",
+            "content": "@@ -1012,11 +1012,8 @@\n int(\n-f%22%7B\n self\n@@ -1034,14 +1034,8 @@\n ivel\n-:.2f%7D%22\n )%0A%0Ad\n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-12-14_08-55-41",
+            "content": "@@ -1014,27 +1014,8 @@\n t(f%22\n-limite disponivel: \n %7Bsel\n@@ -1330,12 +1330,12 @@\n r = \n-8.01\n+7.89\n , nu\n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-12-14_08-56-37",
+            "content": "@@ -1006,55 +1006,14 @@\n     \n-%0A    %0A    def get_limite(self):%0A        return \n+print(\n f%22li\n@@ -1058,16 +1058,17 @@\n el:.2f%7D%22\n+)\n %0A%0Adef pr\n@@ -1197,16 +1197,16 @@\n sumo())%0A\n+\n         \n@@ -1224,87 +1224,8 @@\n ar()\n-%0A        if isinstance(pag, CartaoCredito):%0A            print(pag.get_limite())\n %0A%0Apa\n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-12-14_09-06-14",
+            "content": "@@ -1011,65 +1011,8 @@\n     \n-def resumo (self):%0A        return %22Cart%C3%A3o de Cr%C3%A9dito:%5Cn%22 \n %0A   \n",
+            "lines": "49"
+        },
+        {
+            "label": "2025-12-14_09-11-08",
+            "content": "@@ -1068,27 +1068,8 @@\n %5Cn%22 \n-+ super().resumo()%0A\n %0A   \n",
+            "lines": "50"
+        },
+        {
+            "label": "2025-12-14_09-11-24",
+            "content": "@@ -1059,18 +1059,17 @@\n  Cr%C3%A9dito\n- -\n+:\n %5Cn%22 + su\n",
+            "lines": "51"
+        },
+        {
+            "label": "2025-12-14_09-11-41",
+            "content": "@@ -858,12 +858,8 @@\n t (%22\n---- \n fail\n@@ -883,12 +883,8 @@\n ivel\n- ---\n %22)%0A \n@@ -966,10 +966,8 @@\n t (%22\n-%7C \n succ\n@@ -995,10 +995,8 @@\n mado\n- %7C\n %22)%0A \n@@ -1128,17 +1128,16 @@\n eturn f%22\n-%5B\n limite d\n@@ -1175,17 +1175,16 @@\n vel:.2f%7D\n-%5D\n %22%0A%0Adef p\n",
+            "lines": "51"
+        },
+        {
+            "label": "2025-12-14_09-14-00",
+            "content": "@@ -1559,12 +1559,12 @@\n r = \n-7.89\n+8.01\n , nu\n",
+            "lines": "51"
+        },
+        {
+            "label": "2025-12-14_09-14-34",
+            "content": "@@ -1159,19 +1159,16 @@\n ponivel:\n- R$\n  %7Bself.l\n",
+            "lines": "51"
+        },
+        {
+            "label": "2025-12-14_09-14-56",
+            "content": "@@ -1198,428 +1198,8 @@\n %7D%5D%22%0A\n-    %0A%0Aclass Pix(Pagamento):%0A    def __init__(self, chave: str, banco: str, valor: float, descricao: str):%0A        super().__init__(valor, descricao)%0A        self.chave = chave%0A        self.banco = banco%0A    %0A    def processar(self):%0A        if self.validar_valor():%0A            print (%22%7C success: pagamento confirmado %7C%22)%0A            print (f%22PIX enviado via %7Bself.banco%7D usando chave %7Bself.chave%7D%22)%0A            return%0A%0A\n %0Adef\n@@ -1582,123 +1582,8 @@\n 89)%0A\n-pag: Pagamento = Pix(valor = 3.58, descricao= %22pacote de xuxa%22, chave = %22carlinhos@hotmail.com%22, banco = %22Ita%C3%BA ++%22)\n %0Apag\n",
+            "lines": "51"
+        },
+        {
+            "label": "2025-12-14_09-27-15",
+            "content": "@@ -1855,16 +1855,158 @@\n ite())%0A%0A\n+pag: Pagamento = CartaoCredito(nome_titular = %22David%22, descricao = %22caixa de good good%22, limite_disponivel = 8.00, valor = 7.89, numero = 289)\n %0Apag: Pa\n",
+            "lines": "65"
+        },
+        {
+            "label": "2025-12-14_09-27-43",
+            "content": "@@ -1462,16 +1462,8 @@\n or()\n- == True\n :%0A  \n",
+            "lines": "65"
+        },
+        {
+            "label": "2025-12-14_09-28-05",
+            "content": "@@ -1466,12 +1466,11 @@\n  == \n-Fals\n+Tru\n e:%0A \n",
+            "lines": "65"
+        },
+        {
+            "label": "2025-12-14_09-28-13",
+            "content": "@@ -1427,32 +1427,35 @@\n (self):%0A        \n+if \n self.validar_val\n@@ -1450,32 +1450,42 @@\n .validar_valor()\n+ == False:\n %0A        print (\n@@ -1469,32 +1469,36 @@\n  False:%0A        \n+    \n print (%22%7C succes\n@@ -1517,32 +1517,36 @@\n  confirmado %7C%22)%0A\n+    \n         print (f\n@@ -1603,16 +1603,20 @@\n have%7D%22)%0A\n+    \n         \n",
+            "lines": "65"
+        },
+        {
+            "label": "2025-12-14_11-01-36",
+            "content": "@@ -1602,33 +1602,8 @@\n rn%0A%0A\n-class Boleto(Pagamento):%0A\n %0Adef\n",
+            "lines": "65"
+        },
+        {
+            "label": "2025-12-14_11-10-42",
+            "content": "@@ -33,48 +33,8 @@\n hod%0A\n-import datetime%0Aimport time%0Aimport sys%0A%0A\n %0Acla\n@@ -1602,736 +1602,32 @@\n rn%0A%0A\n-    def resumo(self):%0A        return %22PIX -%5Cn%22 + super().resumo()%0A    %0A%0Aclass Boleto(Pagamento):%0A    def __init__(self, codigo_barras: int, vencimento: datetime.date.today, valor: float, descricao: str):%0A        super().__init__(valor, descricao)%0A        self.codigo_barras = codigo_barras%0A        self.vencimento = vencimento%0A%0A    def processar(self):%0A        print(f%22Boleto gerado. Aguardando pagamento...%22)%0A%0A        for i in range(5, 0, -1):%0A            print(f%22Tempo restante: %7Bi%7D segundo(s)...%22, end='%5Cr')%0A            sys.stdout.flush()%0A            time.sleep(1)%0A%0A        print(%22 %22 * 30, end='%5Cr')%0A        print(%22%7C success: pagamento confirmado! %7C%22)%0A%0A    def resumo(self):%0A        return %22Boleto -%5Cn%22 + super().resumo()    \n+class Boleto(Pagamento):\n %0A%0Ade\n@@ -1882,22 +1882,19 @@\n mento = \n-Boleto\n+Pix\n (valor =\n@@ -1934,69 +1934,57 @@\n %22, c\n-odigo_barras = 1234567890, vencimento = datetime.date.today()\n+have = %22carlinhos@hotmail.com%22, banco = %22Ita%C3%BA ++%22\n )%0Apa\n",
+            "lines": "66"
+        },
+        {
+            "label": "2025-12-14_11-46-49",
+            "content": "@@ -1803,16 +1803,22 @@\n ime.date\n+.today\n , valor:\n@@ -1834,32 +1834,32 @@\n escricao: str):%0A\n-\n         super().\n@@ -1995,152 +1995,8 @@\n f):%0A\n-        self.validar_valor()%0A%0A        if self.vencimento %3C datetime.date.today():%0A            raise ValueError(%22fail: boleto vencido%22)%0A        %0A\n     \n@@ -2227,17 +2227,17 @@\n t(%22 %22 * \n-4\n+3\n 0, end='\n@@ -2609,16 +2609,16 @@\n te())%0A%0A%0A\n+\n pag: Pag\n@@ -2741,20 +2741,8 @@\n day(\n-2025, 12, 30\n ))%0Ap\n",
+            "lines": "92"
+        },
+        {
+            "label": "2025-12-14_11-52-39",
+            "content": "@@ -2057,16 +2057,22 @@\n ime.date\n+.today\n ():%0A    \n",
+            "lines": "97"
+        },
+        {
+            "label": "2025-12-14_11-53-22",
+            "content": "@@ -2862,16 +2862,22 @@\n ime.date\n+.today\n (2025, 1\n",
+            "lines": "97"
+        },
+        {
+            "label": "2025-12-14_11-53-46",
+            "content": "@@ -2061,14 +2061,8 @@\n date\n-.today\n ():%0A\n",
+            "lines": "97"
+        },
+        {
+            "label": "2025-12-14_11-54-06",
+            "content": "@@ -1459,32 +1459,61 @@\n rocessar(self):%0A\n+        self.validar_valor()%0A\n         print (%22\n@@ -1540,32 +1540,32 @@\n  confirmado %7C%22)%0A\n-\n         print (f\n@@ -1977,32 +1977,62 @@\n rocessar(self):%0A\n+        self.validar_valor()%0A%0A\n         if self.\n@@ -2590,26 +2590,8 @@\n to:%0A\n-        try: %0A    \n     \n@@ -2610,28 +2610,24 @@\n dar_valor()%0A\n-    \n         prin\n@@ -2646,28 +2646,24 @@\n ())%0A        \n-    \n pag.processa\n@@ -2662,28 +2662,24 @@\n processar()%0A\n-    \n         if i\n@@ -2717,28 +2717,24 @@\n             \n-   \n- \n print(pag.ge\n@@ -2749,60 +2749,8 @@\n ())%0A\n-        except ValueError as e:%0A            print(e)\n %0A%0Apa\n",
+            "lines": "97"
+        },
+        {
+            "label": "2025-12-14_11-57-57",
+            "content": "@@ -1948,32 +1948,146 @@\n rocessar(self):%0A\n+        if self.vencimento %3C datetime.date.today():%0A            raise ValueError(%22fail: boleto vencido%22)%0A        %0A\n         print(f%22\n",
+            "lines": "96"
+        },
+        {
+            "label": "2025-12-14_12-00-51",
+            "content": "@@ -2037,17 +2037,17 @@\n n range(\n-3\n+5\n , 0, -1)\n",
+            "lines": "93"
+        },
+        {
+            "label": "2025-12-14_12-02-38",
+            "content": "@@ -2066,17 +2066,52 @@\n   print(\n-i\n+f%22Tempo restante: %7Bi%7D segundo(s)...%22\n , end='%5C\n",
+            "lines": "93"
+        },
+        {
+            "label": "2025-12-14_12-03-15",
+            "content": "@@ -2060,16 +2060,22 @@\n         \n+print(\n i, end='\n@@ -2077,16 +2077,17 @@\n end='%5Cr'\n+)\n %0A       \n",
+            "lines": "93"
+        },
+        {
+            "label": "2025-12-14_12-03-35",
+            "content": "@@ -2064,50 +2064,9 @@\n     \n-print(f%22Tempo restante: %7Bi%7D segundo(s)...%22\n+i\n , en\n@@ -2063,33 +2063,32 @@\n      i, end='%5Cr'\n-)\n %0A            sys\n",
+            "lines": "93"
+        },
+        {
+            "label": "2025-12-14_12-04-16",
+            "content": "@@ -2072,40 +2072,43 @@\n t(f%22\n-Aguardando processamento\n+Tempo restante: %7Bi%7D segundo(s)\n ...%22,\n- i,\n  end\n",
+            "lines": "93"
+        },
+        {
+            "label": "2025-12-14_12-05-08",
+            "content": "@@ -1960,122 +1960,8 @@\n f):%0A\n-        if self.vencimento %3C datetime.date.today():%0A            raise ValueError(%22fail: boleto vencido%22)%0A        %0A\n     \n",
+            "lines": "93"
+        },
+        {
+            "label": "2025-12-14_12-06-41",
+            "content": "@@ -2903,18 +2903,18 @@\n 25, 12, \n-12\n+30\n ))%0Apagam\n",
+            "lines": "96"
+        },
+        {
+            "label": "2025-12-14_12-06-57",
+            "content": "@@ -2903,18 +2903,18 @@\n 25, 12, \n+1\n 2\n-0\n ))%0Apagam\n",
+            "lines": "96"
+        },
+        {
+            "label": "2025-12-14_12-07-46",
+            "content": "@@ -2180,16 +2180,17 @@\n   print(\n+f\n %22Aguarda\n@@ -2198,43 +2198,37 @@\n do p\n-agamento%22 + %22.%22 * (i + 1)\n+rocessamento...%22, i\n , end=\n-%22%5Cr%22\n+'%5Cr'\n )%0A  \n",
+            "lines": "96"
+        },
+        {
+            "label": "2025-12-14_12-10-22",
+            "content": "@@ -2214,17 +2214,17 @@\n .%22 * (i \n--\n++\n  1), end\n",
+            "lines": "96"
+        },
+        {
+            "label": "2025-12-14_12-11-02",
+            "content": "@@ -2201,17 +2201,16 @@\n agamento\n-.\n %22 + %22.%22 \n",
+            "lines": "96"
+        },
+        {
+            "label": "2025-12-14_12-11-16",
+            "content": "from abc import ABC, abstractmethod\nimport datetime\nimport time\nimport sys\n\n\nclass Pagamento(ABC):\n    def __init__ (self, valor: float, descricao: str):\n        self.valor = valor\n        self.descricao = descricao\n\n    def resumo(self) -> str:\n        return f\"Pagamento de R$ {self.valor}: {self.descricao}\"\n    \n    def validar_valor(self) -> None:\n        if self.valor <= 0:\n            raise ValueError(\"fail: valor invalido\")\n\n    @abstractmethod    \n    def processar(self):\n        pass\n\n\nclass CartaoCredito(Pagamento):\n    def __init__(self, numero: int, nome_titular: str, limite_disponivel: float, valor: float, descricao: str):\n        super().__init__(valor, descricao)\n        self.numero = numero\n        self.nome_titular = nome_titular\n        self.limite_disponivel = limite_disponivel\n\n    def processar(self):\n        if self.valor > self.limite_disponivel:\n            print (\"--- fail: limite indisponivel ---\")\n            return\n        self.limite_disponivel -= self.valor\n        print (\"| success: pagamento confirmado |\")\n        \n    def resumo (self):\n        return \"Cart\u00e3o de Cr\u00e9dito -\\n\" + super().resumo()\n\n    def get_limite(self):\n        return f\"[limite disponivel: R$ {self.limite_disponivel:.2f}]\"\n    \n\nclass Pix(Pagamento):\n    def __init__(self, chave: str, banco: str, valor: float, descricao: str):\n        super().__init__(valor, descricao)\n        self.chave = chave\n        self.banco = banco\n    \n    def processar(self):\n        print (\"| success: pagamento confirmado |\")\n        print (f\"PIX enviado via {self.banco} usando chave {self.chave}\")\n        return\n\n    def resumo(self):\n        return \"PIX -\\n\" + super().resumo()\n    \n\nclass Boleto(Pagamento):\n    def __init__(self, codigo_barras: int, vencimento: datetime.date, valor: float, descricao: str):\n        super().__init__(valor, descricao)\n        self.codigo_barras = codigo_barras\n        self.vencimento = vencimento\n\n    def processar(self):\n        if self.vencimento < datetime.date.today():\n            raise ValueError(\"fail: boleto vencido\")\n        \n        print(f\"Boleto gerado. Aguardando pagamento...\")\n\n        for i in range(3, 0, -1):\n            print(\"Aguardando pagamento.\" + \".\" * (i - 1), end=\"\\r\")\n            sys.stdout.flush()\n            time.sleep(1)\n\n        print(\" \" * 40, end='\\r')\n        print(\"| success: pagamento confirmado! |\")\n\n    def resumo(self):\n        return \"Boleto -\\n\" + super().resumo()    \n\ndef processar_pagamento(pagamento: list [Pagamento]):\n    for pag in pagamento:\n        try: \n            pag.validar_valor()\n            print(pag.resumo())\n            pag.processar()\n            if isinstance(pag, CartaoCredito):\n                print(pag.get_limite())\n        except ValueError as e:\n            print(e)\n\npag: Pagamento = Boleto(valor = 3.58, descricao= \"pacote de xuxa\", codigo_barras = 1234567890, vencimento = datetime.date(2025, 12, 20))\npagamentos: list [Pagamento] = [pag]\nprocessar_pagamento(pagamentos)",
+            "lines": "96"
+        }
+    ]
+}
