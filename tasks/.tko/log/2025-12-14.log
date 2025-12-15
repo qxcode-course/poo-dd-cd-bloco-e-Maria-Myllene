@@ -165,3 +165,5 @@
 2025-12-14 23:26:57, MOVE, v:1, k:poo@estacionamento, mode:PICK
 2025-12-14 23:26:58, EXEC, v:1, k:poo@estacionamento, mode:FULL, rate:100, size:128
 2025-12-14 23:26:59, MOVE, v:1, k:poo@estacionamento, mode:BACK
+2025-12-14 23:30:33, SELF, v:1, k:poo@estacionamento, rate:100, iagen:s, alone:6, study:230
+2025-12-14 23:31:03, SELF, v:1, k:poo@estacionamento, rate:100, iagen:s, alone:6, study:230
